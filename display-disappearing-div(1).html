@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Display Hidden Div</title>
+    </head>
+    <body>
+        <div  class="outer-container">
+        <div class="visible-container" id="visible-container">
+            Place the cursor inside this div to show hidden div
+        </div><br>
+        <div class="hidden-container" id="hidden-container">
+            Hello Myfriends
+
+        </div>
+        </div>
+    </body>
+    <style>
+        .outer-container{
+            display: inline-flex;
+        }
+        .visible-container{
+            text-align: center;
+            width: 350px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius:22px ;
+        }
+        .visible-container:hover{
+            background-color: cornsilk;
+        }
+        .hidden-container{
+            width: 350px;
+            height:200px;
+            border: 2px solid black;
+            border-radius: 22px;
+            margin-left: 100px;
+            text-align: center;
+            visibility: hidden;
+        }
+        .hidden-container-show{
+            visibility: visible;
+        }
+
+    </style>
+    <script>
+            var show_hidden=function(){
+                 var show=document.getElementById("hidden-container")
+                 //add hidden-container-show CSS to hidden-container
+                 show.classList.add("hidden-container-show");
+
+            }
+            var hide_hidden=function(){
+                var hide=document.getElementById("hidden-container");
+                //remove hidden-container-show CSS from hidden-container
+                hide.classList.remove("hidden-container-show");
+                
+            }
+            //on mouse enter in visible-container div show_hidden is implemented
+            document.getElementById("visible-container").onmouseenter= show_hidden;
+            //on mouse leave from visible container div hide_hidden is implemented
+            document.getElementById("visible-container").onmouseleave= hide_hidden;
+    </script>
+</html>
